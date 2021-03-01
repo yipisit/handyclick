@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/hc_background"
+
+    tools:context=".MainActivity">
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/text_view_result"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:gravity="center"-->
+    <!--        android:textColor="@android:color/black"-->
+    <!--        android:textSize="20sp" />-->
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/phone_time"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentTop="true"-->
+    <!--        android:layout_marginTop="450dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:textColor="@android:color/black"-->
+    <!--        android:textSize="20sp" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/pressed_time"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentTop="true"-->
+    <!--        android:layout_marginTop="184dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:textColor="@android:color/black"-->
+    <!--        android:textSize="20sp" />-->
+
+    <TextView
+        android:id="@+id/battery_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:textColor="#d1d4d7"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="HandyClick."
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:textColor="#d1d4d7"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="1dp"
+        android:layout_centerHorizontal="true"
+        android:text="Welcome"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:textColor="#d1d4d7"
+        android:textSize="30dp" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="180dp"
+        android:layout_marginBottom="440dp"
+        app:srcCompat="@drawable/hcbut1" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="480dp"
+        android:layout_marginBottom="140dp"
+        app:srcCompat="@drawable/hcbut4" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="380dp"
+        android:layout_marginBottom="240dp"
+        app:srcCompat="@drawable/hcbut3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="280dp"
+        android:layout_marginBottom="340dp"
+        app:srcCompat="@drawable/hcbut2" />
+
+
+
+    <Button
+        android:id="@+id/Button1"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="211dp"
+        android:layout_marginTop="1sp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="450dp"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:text="Open Website"
+        android:textColor="@color/white" />
+
+
+    <Button
+        android:id="@+id/Button2"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="211dp"
+        android:layout_marginTop="1sp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="350dp"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:text="Call Contact"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/Button3"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="211dp"
+        android:layout_marginTop="1sp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="250dp"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:text="Open Youtube"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/Button4"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="211dp"
+        android:layout_marginTop="1sp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="150dp"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:text="Open Camera"
+        android:textColor="@color/white" />
+
+
+
+
+</RelativeLayout>
