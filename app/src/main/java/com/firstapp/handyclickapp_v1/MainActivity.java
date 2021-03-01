@@ -38,6 +38,8 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener{
 
+    int buttonset = 1; // ONLY CHANGE THIS
+
     String[] lastRequest = new String[]{"false"}; // {ACTION},{TIMESTAMP}
     String[] tempRequest;
     String tempAction;
@@ -54,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     //private TextView mPressedTime;
     static final String TAG = "MainActivity";
     private Button button;
-    private TextView textView;
     String phone_nr = "Empty";
     String website_name = "Empty";
 
@@ -71,8 +72,6 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                 openActivity2();
             }
         });
-
-        textView = (TextView) findViewById(R.id.textView2);
 
         openDialog();
 
@@ -119,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
     public void requestWebPage() throws InterruptedException {
         OkHttpClient client = new OkHttpClient();
-        String url = "https://vanginkelschoonmaak.nl/handyclick/data.php?buttonset=1";
+        String url = "https://vanginkelschoonmaak.nl/handyclick/data.php?buttonset=" + buttonset;
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -170,12 +169,9 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         if (excecute) {
             // Excecute the action
             runOnUiThread(new Runnable() {
-
                 @Override
                 public void run() {
-
-                    doAction();
-
+                    doAction(buttonset);
                 }
             });
         }
@@ -186,58 +182,90 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         requestWebPage();
     }
 
-    public void doAction() {
-        if (tempAction.equals("1_single")) {
-            textView.setText("BUTTON1 GELEZEN");
-            Log.d(TAG, "Website will be opened");
-            String google = website_name;
-            Uri webaddress = Uri.parse(google);
+    public void doAction(int buttonset) {
+        if (buttonset != 3) {
+            if (tempAction.equals("1_single")) {
+//                textView.setText("BUTTON1 GELEZEN");
+                Log.d(TAG, "Website will be opened");
+                String google = website_name;
+                Uri webaddress = Uri.parse(google);
 
-            Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
-            if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
-                startActivity(gotoGoogle);
+                Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
+                if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                    startActivity(gotoGoogle);
+                }
+            }
+            if (tempAction.equals("2_single")){
+//                textView.setText("BUTTON2 GELEZEN");
+                Log.d(TAG, "Youtube will be opened ");
+                Intent i = getPackageManager().getLaunchIntentForPackage("com.google.android.youtube");
+                startActivity(i);
+            }
+            if (tempAction.equals("3_single")){
+//                textView.setText("BUTTON3 GELEZEN");
+                callPhoneNumber();
+                Log.d(TAG, "Contact will be called");
+            }
+            if (tempAction.equals("4_single")){
+//                textView.setText("BUTTON4 GELEZEN");
+                Log.d(TAG, "Camera will be opened");
+                Intent openCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(openCamera);
             }
 
-        }
-        if (tempAction.equals("2_double")) {
-            textView.setText("BUTTON2 GELEZEN");
-            Log.d(TAG, "Van Mossel will be opened");
-            String google = "https://www.vanmossel.nl";
-            Uri webaddress = Uri.parse(google);
+            if (tempAction.equals("2_double")) {
+//                textView.setText("BUTTON2 GELEZEN");
+                Log.d(TAG, "Van Mossel will be opened");
+                String google = "https://www.vanmossel.nl";
+                Uri webaddress = Uri.parse(google);
 
-            Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
-            if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
-                startActivity(gotoGoogle);
+                Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
+                if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                    startActivity(gotoGoogle);
+                }
+            }
+            if (tempAction.equals("4_double")) {
+//                textView.setText("BUTTON4 GELEZEN");
+                Log.d(TAG, "Cooking tutorial will be opened");
+                String google = "https://www.youtube.com/watch?v=X5oD_thIk3c";
+                Uri webaddress = Uri.parse(google);
+
+                Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
+                if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                    startActivity(gotoGoogle);
+                }
+            }
+        } else {
+            if (tempAction.equals("1_on")) {
+//                textView.setText("BUTTON1 GELEZEN");
+                Log.d(TAG, "Website will be opened");
+                String google = website_name;
+                Uri webaddress = Uri.parse(google);
+
+                Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
+                if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                    startActivity(gotoGoogle);
+                }
+            }
+            if (tempAction.equals("2_on")){
+//                textView.setText("BUTTON2 GELEZEN");
+                Log.d(TAG, "Youtube will be opened ");
+                Intent i = getPackageManager().getLaunchIntentForPackage("com.google.android.youtube");
+                startActivity(i);
+            }
+            if (tempAction.equals("3_on")){
+//                textView.setText("BUTTON3 GELEZEN");
+                callPhoneNumber();
+                Log.d(TAG, "Contact will be called");
+            }
+            if (tempAction.equals("4_on")){
+//                textView.setText("BUTTON4 GELEZEN");
+                Log.d(TAG, "Camera will be opened");
+                Intent openCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(openCamera);
             }
         }
-        if (tempAction.equals("4_double")) {
-            textView.setText("BUTTON4 GELEZEN");
-            Log.d(TAG, "Cooking tutorial will be opened");
-            String google = "https://www.youtube.com/watch?v=X5oD_thIk3c";
-            Uri webaddress = Uri.parse(google);
 
-            Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
-            if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
-                startActivity(gotoGoogle);
-            }
-        }
-        if (tempAction.equals("2_single")){
-            textView.setText("BUTTON2 GELEZEN");
-            Log.d(TAG, "Youtube will be opened ");
-            Intent i = getPackageManager().getLaunchIntentForPackage("com.google.android.youtube");
-            startActivity(i);
-        }
-        if (tempAction.equals("3_single")){
-            textView.setText("BUTTON3 GELEZEN");
-            callPhoneNumber();
-            Log.d(TAG, "Contact will be called");
-        }
-        if (tempAction.equals("4_single")){
-            textView.setText("BUTTON4 GELEZEN");
-            Log.d(TAG, "Camera will be opened");
-            Intent openCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivity(openCamera);
-        }
         excecute = false;
     }
 
