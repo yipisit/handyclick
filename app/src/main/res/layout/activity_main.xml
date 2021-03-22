@@ -105,8 +105,9 @@
         android:shadowDx="1.5"
         android:shadowDy="1.3"
         android:shadowRadius="1.6"
-        android:text="Open Camera"
-        android:textColor="@color/white" />
+        android:text="No Funcion"
+        android:textColor="@color/white"
+        android:onClick="showPopup"/>
 
     <Button
         android:id="@+id/Button2"
@@ -120,8 +121,9 @@
         android:shadowDx="1.5"
         android:shadowDy="1.3"
         android:shadowRadius="1.6"
-        android:text="Open Website"
-        android:textColor="@color/white" />
+        android:text="No Function"
+        android:textColor="@color/white"
+        android:onClick="showPopup"/>
 
     <Button
         android:id="@+id/Button3"
@@ -135,8 +137,9 @@
         android:shadowDx="1.5"
         android:shadowDy="1.3"
         android:shadowRadius="1.6"
-        android:text="Call Contact"
-        android:textColor="@color/white" />
+        android:text="No Function"
+        android:textColor="@color/white"
+        android:onClick="showPopup"/>
 
     <Button
         android:id="@+id/Button4"
@@ -151,8 +154,9 @@
         android:shadowDx="1.5"
         android:shadowDy="1.3"
         android:shadowRadius="1.6"
-        android:text="Open Youtube"
-        android:textColor="@color/white" />
+        android:text="No Function"
+        android:textColor="@color/white"
+        android:onClick="showPopup"/>
     <Button
         android:id="@+id/buttonAct2"
         android:layout_width="33dp"

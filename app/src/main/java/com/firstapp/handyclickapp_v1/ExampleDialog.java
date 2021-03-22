@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 public class ExampleDialog extends AppCompatDialogFragment {
     private EditText editTextphonenr;
     private EditText editTextwebsite;
+    private EditText editTextlocation;
     private ExampleDialogListener listener;
     @NonNull
     @Override
@@ -25,7 +26,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_dialog,null);
 
-        builder.setView(view).setTitle("Please enter your phone number and web address").setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+        builder.setView(view).setTitle("Please enter your phone number, web address and destination").setNegativeButton("cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
 
@@ -36,7 +37,8 @@ public class ExampleDialog extends AppCompatDialogFragment {
                     public void onClick(DialogInterface dialog, int i) {
                         String phonenumber = editTextphonenr.getText().toString();
                         String webURL = editTextwebsite.getText().toString();
-                        listener.applyTexts(phonenumber, webURL);
+                        String location = editTextlocation.getText().toString();
+                        listener.applyTexts(phonenumber, webURL, location);
 
 
 
@@ -44,6 +46,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
                 });
         editTextphonenr = view.findViewById(R.id.edit_phonenr);
         editTextwebsite = view.findViewById(R.id.edit_website);
+        editTextlocation = view.findViewById(R.id.edit_location);
         return builder.create();
     }
 
@@ -59,6 +62,6 @@ public class ExampleDialog extends AppCompatDialogFragment {
     }
 
     public interface ExampleDialogListener{
-        void applyTexts(String phonenumber, String webURL);
+        void applyTexts(String phonenumber, String webURL, String location);
     }
 }

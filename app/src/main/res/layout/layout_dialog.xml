@@ -15,6 +15,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/edit_phonenr"
         android:hint="Web address" />
+    <EditText
+        android:id="@+id/edit_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_website"
+        android:hint="Destination" />
 
 
 </RelativeLayout>

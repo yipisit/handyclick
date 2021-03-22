@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/item0"
+        android:title="No Function"/>
+    <item android:id="@+id/item1"
+        android:title="Call Contact"/>
+    <item android:id="@+id/item2"
+        android:title="Open Youtube"/>
+    <item android:id="@+id/item3"
+        android:title="Open Camera"/>
+    <item android:id="@+id/item4"
+        android:title="Open Website"/>
+    <item android:id="@+id/item5"
+        android:title="Navigate to Address"/>
+    <item android:id="@+id/item6"
+        android:title="Watch cooking tutorial"/>
+
+</menu>
