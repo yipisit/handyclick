@@ -34,7 +34,7 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener, PopupMenu.OnMenuItemClickListener {
 
-    int buttonset = 1; // ONLY CHANGE THIS
+    int buttonset =1; // ONLY CHANGE THIS
 
     String[] lastRequest = new String[]{"false"}; // {ACTION},{TIMESTAMP}
     String[] tempRequest;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
 
     //private TextView mTextViewResult;
-    private TextView mBatteryStatus;
+    public TextView mBatteryStatus;
     //private TextView mPhoneTime;
     //private TextView mPressedTime;
     static final String TAG = "MainActivity";
@@ -68,15 +68,14 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
 
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         top_left = (Button) findViewById(R.id.Button1);
-
         bottom_left = (Button) findViewById(R.id.Button2);
-
         top_right = (Button) findViewById(R.id.Button3);
         bottom_right = (Button) findViewById(R.id.Button4);
         button = (Button) findViewById(R.id.buttonAct2);
@@ -86,39 +85,79 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                 openActivity2();
             }
         });
-        /*top_left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clicked_button = top_left;
-                showPopup(v);
-                assigned_function_1 = assigned_function;
-            }
-        });
-        top_right.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clicked_button = top_right;
-                showPopup(v);
-                assigned_function_2 = assigned_function;
-            }
-        });
-        bottom_right.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clicked_button = bottom_right;
-                showPopup(v);
-                assigned_function_3 = assigned_function;
-            }
-        });
-        bottom_left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clicked_button = bottom_left;
-                showPopup(v);
-                assigned_function_4 = assigned_function;
 
-            }
-        });*/
+        /*if (buttonset != 3) {
+            top_right.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clicked_button = top_right;
+                    showPopup(v);
+                    assigned_function_2 = assigned_function;
+                }
+            });
+            bottom_right.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clicked_button = bottom_right;
+                    showPopup(v);
+                    assigned_function_3 = assigned_function;
+                }
+            });
+            bottom_left.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clicked_button = bottom_left;
+                    showPopup(v);
+                    assigned_function_4 = assigned_function;
+
+                }
+            });
+            top_left.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clicked_button = top_left;
+                    showPopup(v);
+                    assigned_function_1 = assigned_function;
+
+                }
+            });
+        }else {
+            Ikea_1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clicked_button = Ikea_1;
+                    showPopup(v);
+                    assigned_function_I1 = assigned_function_I;
+                }
+            });
+            Ikea_2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clicked_button = Ikea_2;
+                    showPopup(v);
+                    assigned_function_I2 = assigned_function_I;
+                }
+            });
+            Ikea_3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clicked_button = Ikea_3;
+                    showPopup(v);
+                    assigned_function_I3 = assigned_function_I;
+                }
+            });
+            Ikea_4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clicked_button = Ikea_4;
+                    showPopup(v);
+                    assigned_function_I4 = assigned_function_I;
+                }
+            });
+
+        }*/
+
+
 
         openDialog();
 
@@ -241,7 +280,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         if (buttonset != 3) {
 
             if (tempAction.equals("1_single")) {
-                if (assigned_function_1.equals("")){
+                if (assigned_function_1.equals("")) {
                     return;
                 }
                 if (assigned_function_1.equals("Website")) {
@@ -292,7 +331,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                 }
             }
             if (tempAction.equals("2_single")) {
-                if (assigned_function_2.equals("")){
+                if (assigned_function_2.equals("")) {
                     return;
                 }
                 if (assigned_function_2.equals("Website")) {
@@ -343,7 +382,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                 }
             }
             if (tempAction.equals("3_single")) {
-                if (assigned_function_3.equals("")){
+                if (assigned_function_3.equals("")) {
                     return;
                 }
                 if (assigned_function_3.equals("Website")) {
@@ -394,7 +433,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                 }
             }
             if (tempAction.equals("4_single")) {
-                if (assigned_function_4.equals("")){
+                if (assigned_function_4.equals("")) {
                     return;
                 }
                 if (assigned_function_4.equals("Website")) {
@@ -514,27 +553,238 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                     startActivity(gotoGoogle);
                 }
             }
-            if (tempAction.equals("2_on")){
+            if (tempAction.equals("2_on")) {
 //                textView.setText("BUTTON2 GELEZEN");
                 Log.d(TAG, "Youtube will be opened ");
                 Intent i = getPackageManager().getLaunchIntentForPackage("com.google.android.youtube");
                 startActivity(i);
             }
-            if (tempAction.equals("3_on")){
+            if (tempAction.equals("3_on")) {
 //                textView.setText("BUTTON3 GELEZEN");
                 callPhoneNumber();
                 Log.d(TAG, "Contact will be called");
             }
-            if (tempAction.equals("4_on")){
+            if (tempAction.equals("4_on")) {
 //                textView.setText("BUTTON4 GELEZEN");
                 Log.d(TAG, "Camera will be opened");
                 Intent openCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivity(openCamera);
             }
-        }
 
+
+
+
+            /*if (tempAction.equals("1_on")) {
+                if (assigned_function_I1.equals("")){
+                    return;
+                }
+                if (assigned_function_I1.equals("Website")) {
+//                textView.setText("BUTTON1 GELEZEN");
+                    Log.d(TAG, "Website will be opened");
+                    String google = website_name;
+                    Uri webaddress = Uri.parse(google);
+
+                    Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
+                    if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                        startActivity(gotoGoogle);
+                    }
+                }
+                if (assigned_function_I1.equals("Youtube")) {
+                    //textView.setText("BUTTON2 GELEZEN");
+                    Log.d(TAG, "Youtube will be opened ");
+                    Intent i = getPackageManager().getLaunchIntentForPackage("com.google.android.youtube");
+                    startActivity(i);
+                }
+                if (assigned_function_I1.equals("Call")) {
+                    //textView.setText("BUTTON3 GELEZEN");
+                    callPhoneNumber();
+                    Log.d(TAG, "Contact will be called");
+                }
+                if (assigned_function_I1.equals("Camera")) {
+                    //textView.setText("BUTTON4 GELEZEN");
+                    Log.d(TAG, "Camera will be opened");
+                    Intent openCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivity(openCamera);
+                }
+                if (assigned_function_I1.equals("Cooking")) {
+//                textView.setText("BUTTON4 GELEZEN");
+                    Log.d(TAG, "Cooking tutorial will be opened");
+                    String google = "https://www.youtube.com/watch?v=X5oD_thIk3c";
+                    Uri webaddress = Uri.parse(google);
+
+                    Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
+                    if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                        startActivity(gotoGoogle);
+                    }
+                }
+                if (assigned_function_I1.equals("Navigation")) {
+                    Uri gmmIntentUri = Uri.parse("google.navigation:q=" + navigation_address);
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    startActivity(mapIntent);
+
+                }
+            }
+            if (tempAction.equals("2_on")) {
+                if (assigned_function_I2.equals("")){
+                    return;
+                }
+                if (assigned_function_I2.equals("Website")) {
+//                textView.setText("BUTTON1 GELEZEN");
+                    Log.d(TAG, "Website will be opened");
+                    String google = website_name;
+                    Uri webaddress = Uri.parse(google);
+
+                    Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
+                    if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                        startActivity(gotoGoogle);
+                    }
+                }
+                if (assigned_function_I2.equals("Youtube")) {
+                    //textView.setText("BUTTON2 GELEZEN");
+                    Log.d(TAG, "Youtube will be opened ");
+                    Intent i = getPackageManager().getLaunchIntentForPackage("com.google.android.youtube");
+                    startActivity(i);
+                }
+                if (assigned_function_I2.equals("Call")) {
+                    //textView.setText("BUTTON3 GELEZEN");
+                    callPhoneNumber();
+                    Log.d(TAG, "Contact will be called");
+                }
+                if (assigned_function_I2.equals("Camera")) {
+                    //textView.setText("BUTTON4 GELEZEN");
+                    Log.d(TAG, "Camera will be opened");
+                    Intent openCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivity(openCamera);
+                }
+                if (assigned_function_I2.equals("Cooking")) {
+//                textView.setText("BUTTON4 GELEZEN");
+                    Log.d(TAG, "Cooking tutorial will be opened");
+                    String google = "https://www.youtube.com/watch?v=X5oD_thIk3c";
+                    Uri webaddress = Uri.parse(google);
+
+                    Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
+                    if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                        startActivity(gotoGoogle);
+                    }
+                }
+                if (assigned_function_I2.equals("Navigation")) {
+                    Uri gmmIntentUri = Uri.parse("google.navigation:q=" + navigation_address);
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    startActivity(mapIntent);
+
+                }
+            }
+            if (tempAction.equals("3_on")) {
+                if (assigned_function_I3.equals("")){
+                    return;
+                }
+                if (assigned_function_I3.equals("Website")) {
+//                textView.setText("BUTTON1 GELEZEN");
+                    Log.d(TAG, "Website will be opened");
+                    String google = website_name;
+                    Uri webaddress = Uri.parse(google);
+
+                    Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
+                    if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                        startActivity(gotoGoogle);
+                    }
+                }
+                if (assigned_function_I3.equals("Youtube")) {
+                    //textView.setText("BUTTON2 GELEZEN");
+                    Log.d(TAG, "Youtube will be opened ");
+                    Intent i = getPackageManager().getLaunchIntentForPackage("com.google.android.youtube");
+                    startActivity(i);
+                }
+                if (assigned_function_I3.equals("Call")) {
+                    //textView.setText("BUTTON3 GELEZEN");
+                    callPhoneNumber();
+                    Log.d(TAG, "Contact will be called");
+                }
+                if (assigned_function_I3.equals("Camera")) {
+                    //textView.setText("BUTTON4 GELEZEN");
+                    Log.d(TAG, "Camera will be opened");
+                    Intent openCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivity(openCamera);
+                }
+                if (assigned_function_I3.equals("Cooking")) {
+//                textView.setText("BUTTON4 GELEZEN");
+                    Log.d(TAG, "Cooking tutorial will be opened");
+                    String google = "https://www.youtube.com/watch?v=X5oD_thIk3c";
+                    Uri webaddress = Uri.parse(google);
+
+                    Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
+                    if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                        startActivity(gotoGoogle);
+                    }
+                }
+                if (assigned_function_I3.equals("Navigation")) {
+                    Uri gmmIntentUri = Uri.parse("google.navigation:q=" + navigation_address);
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    startActivity(mapIntent);
+
+                }
+            }
+            if (tempAction.equals("4_on")) {
+                if (assigned_function_I4.equals("")){
+                    return;
+                }
+                if (assigned_function_I4.equals("Website")) {
+//                textView.setText("BUTTON1 GELEZEN");
+                    Log.d(TAG, "Website will be opened");
+                    String google = website_name;
+                    Uri webaddress = Uri.parse(google);
+
+                    Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
+                    if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                        startActivity(gotoGoogle);
+                    }
+                }
+                if (assigned_function_I4.equals("Youtube")) {
+                    //textView.setText("BUTTON2 GELEZEN");
+                    Log.d(TAG, "Youtube will be opened ");
+                    Intent i = getPackageManager().getLaunchIntentForPackage("com.google.android.youtube");
+                    startActivity(i);
+                }
+                if (assigned_function_I4.equals("Call")) {
+                    //textView.setText("BUTTON3 GELEZEN");
+                    callPhoneNumber();
+                    Log.d(TAG, "Contact will be called");
+                }
+                if (assigned_function_I4.equals("Camera")) {
+                    //textView.setText("BUTTON4 GELEZEN");
+                    Log.d(TAG, "Camera will be opened");
+                    Intent openCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivity(openCamera);
+                }
+                if (assigned_function_I4.equals("Cooking")) {
+//                textView.setText("BUTTON4 GELEZEN");
+                    Log.d(TAG, "Cooking tutorial will be opened");
+                    String google = "https://www.youtube.com/watch?v=X5oD_thIk3c";
+                    Uri webaddress = Uri.parse(google);
+
+                    Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress); //No application context to get, so we'll go outside our app (using ACTION VIEW)
+                    if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                        startActivity(gotoGoogle);
+                    }
+                }
+                if (assigned_function_I4.equals("Navigation")) {
+                    Uri gmmIntentUri = Uri.parse("google.navigation:q=" + navigation_address);
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    startActivity(mapIntent);
+
+                }*/
+
+        }
         excecute = false;
+
+
+
     }
+
 
     public void openActivity2(){
         Intent open = new Intent(this, MainActivity2.class);
@@ -747,36 +997,43 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
             case R.id.item0:
             clicked_button.setText("No Function");
             assigned_function = "";
+
             return true;
 
             case R.id.item1:
             clicked_button.setText("Call Contact");
             assigned_function = "Call";
+
             return true;
 
             case R.id.item2:
             clicked_button.setText("Open Youtube");
             assigned_function = "Youtube";
+
             return true;
 
             case R.id.item3:
             clicked_button.setText("Open Camera");
             assigned_function = "Camera";
+
             return true;
 
             case R.id.item4:
             clicked_button.setText("Open Website");
             assigned_function = "Website";
+
             return true;
 
             case R.id.item5:
                 clicked_button.setText("Navigation");
                 assigned_function = "Navigation";
+
                 return true;
 
             case R.id.item6:
                 clicked_button.setText("Cooking");
                 assigned_function = "Cooking";
+
                 return true;
             default:
                 return false;
